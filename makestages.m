@@ -1,0 +1,12 @@
+clear all; clc; close all;
+disp('Loading patient database...');
+load('patient_vol_flow.mat');
+disp('Making point models...');
+[ptvolmed ptvolavg] = ptmodel(patient,'vol');
+[ptflowmed ptflowavg] = ptmodel(patient,'flow');
+[ptdvolmed ptdvolavg] = ptmodel(patient,'dvol');
+%disp('Making exponential models...');
+%[expmed expavg] = expmodel(patient);
+save('models.mat');
+clear;
+load('models.mat');
